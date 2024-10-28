@@ -1,16 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app>
+    <v-main>
+      <v-container>
+        <v-btn color="primary">Hello, Vuetify!</v-btn>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+
 }
 </script>
 
