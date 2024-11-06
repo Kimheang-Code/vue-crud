@@ -1,30 +1,31 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import { createVuetify } from 'vuetify'; 
+import 'vuetify/dist/vuetify.min.css';
+import router from './router/index.ts';
+import { VContainer, VBtn, VListImg, VDivider, VLigatureIcon, VLayout, VCard, VNavigationDrawer, VList, VAppBar, VSpacer, VToolbar, VAppBarNavIcon, VToolbarTitle } from 'vuetify/components';
 
-// Import Vuetify
-import { createVuetify } from 'vuetify'
-import 'vuetify/styles'
-import { aliases, mdi } from 'vuetify/iconsets/mdi'
-
-// Import material design icons
-import '@mdi/font/css/materialdesignicons.css'
-
-// Create Vuetify instance
 const vuetify = createVuetify({
-  icons: {
-    defaultSet: 'mdi',
-    aliases,
-    sets: {
-      mdi,
-    },
-  },
-})
+  components: {
+    VContainer,  
+    VBtn,
+    VListImg,
+    VDivider,
+    VLigatureIcon,
+    VLayout,
+    VCard,
+    VNavigationDrawer ,
+    VList,
+    VAppBar,
+    VSpacer,
+    VToolbar,
+    VAppBarNavIcon,
+    VToolbarTitle,
+    
+  }
+});
 
-// Create Vue app
-const app = createApp(App)
-
-// Use Vuetify
-app.use(vuetify)
-
-// Mount the app
-app.mount('#app')
+const app = createApp(App);
+app.use(vuetify);
+app.use(router);
+app.mount('#app');
