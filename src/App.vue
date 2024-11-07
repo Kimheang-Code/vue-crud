@@ -1,57 +1,40 @@
 <template>
-  <v-card>
-    <v-layout>
-      <v-app-bar color="primary" prominent>
-        <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+  <v-layout ref="app" class="rounded rounded-md">
+    <v-app-bar :elevation="2" color="brown-darken-4" name="app-bar">
+      <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-btn class="mx-auto" variant="text">
+        Header
+      </v-btn>
+    </v-app-bar>
 
-        <v-toolbar-title>My files</v-toolbar-title>
+    <v-navigation-drawer v-model="drawer" :location="$vuetify.display.mobile ? 'left' : undefined">
+      <v-list>
+        <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home"></v-list-item>
+        <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+        <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+        <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+        <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+        <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+        <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-        <v-spacer></v-spacer>
-
-        <template v-if="$vuetify.display.mdAndUp">
-          <v-btn icon="mdi-magnify" variant="text"></v-btn>
-
-          <v-btn icon="mdi-filter" variant="text"></v-btn>
-        </template>
-
-        <v-btn icon="mdi-dots-vertical" variant="text"></v-btn>
-      </v-app-bar>
-
-      <v-navigation-drawer v-model="drawer" :location="$vuetify.display.mobile ? 'bottom' : undefined" temporary>
-        <v-list :items="items"></v-list>
-      </v-navigation-drawer>
-
-      <v-main style="height: 500px;">
+    <v-main class="" style="margin-top: 60px; padding: 5px; width: 100%;">
         <router-view></router-view>
-      </v-main>
-    </v-layout>
-  </v-card>
-</template>
+    </v-main>
 
+    <v-footer name="footer" color="brown-darken-4" app>
+      <v-btn class="mx-auto" variant="text">
+        Footer
+      </v-btn>
+    </v-footer>
+  </v-layout>
+</template>
 <script>
 export default {
-  name: 'App',
   data: () => ({
-    drawer: false,
+    drawer: true,
     group: null,
-    items: [
-      {
-        title: 'Foo',
-        value: 'foo',
-      },
-      {
-        title: 'Bar',
-        value: 'bar',
-      },
-      {
-        title: 'Fizz',
-        value: 'fizz',
-      },
-      {
-        title: 'Buzz',
-        value: 'buzz',
-      },
-    ],
   }),
 
   watch: {
@@ -59,13 +42,5 @@ export default {
       this.drawer = false
     },
   },
-  methods: {
-    goToAbout() {
-      this.$router.push('/about');
-    },
-    goToHome() {
-      this.$router.push('/');
-    }
-  }
-};
+}
 </script>

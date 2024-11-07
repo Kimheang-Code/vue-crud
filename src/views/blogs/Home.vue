@@ -1,8 +1,14 @@
 <template>
     <v-container>
-        <h1>Welcome to the Home Page</h1>
-        <v-btn color="primary" @click="goToAbout">Go to About Page</v-btn>
+        <v-card>
+            <v-row>
+                <v-col cols="12">
+                    <v-text-field label="Amount" model-value="10.00" prefix="$"></v-text-field>
+                </v-col>
+            </v-row>
+        </v-card>
     </v-container>
+
 </template>
 
 <script>

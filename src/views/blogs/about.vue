@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <h1>About Page</h1>
+        <v-text-field clearable label="Label" variant="underlined"></v-text-field>
         <v-btn color="primary" @click="goToHome">Back to Home</v-btn>
     </v-container>
 </template>
